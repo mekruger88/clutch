@@ -1,0 +1,36 @@
+item,model,qty,status,unit_cost_usd,notes
+Chassis + mecanum drivetrain,SmaringRobot metal 4WD mecanum kit,1,owned,99.99,4x 12V encoder motors included; encoder output type UNVERIFIED (CTL-000)
+2D LiDAR,RPLIDAR C1,1,owned,71.90,12 m range; 10 Hz; ROS 2 driver available
+Motor driver,TB6612FNG (3-pack),3,owned,2.61,channels to be paralleled; 4th board required
+Motor driver,TB6612FNG (additional),1,to-buy,2.61,ADR-0002 needs 4 boards total
+Servo PWM driver,PCA9685 16-channel,1,owned,6.99,arm stage; logic at 3.3 V with Teensy
+Arm servos,MG996R (Deegoo-FPV),8,owned,4.50,catalog specs disagree with manufacturer page; verify before use
+Servo BEC,FEICHAO 8A UBEC,1,owned,17.08,selectable 5V/6V; arm stage only
+Buck converter,UCTRONICS 5V 5A (2-pack),2,owned,7.50,compute rail; verify under load (PWR-004)
+Buck converter,DROK 5-5.3V,1,owned,0.00,spare; fixed-output preferred for compute
+Current/voltage monitor,INA226,5,owned,5.20,battery/drive/servo/compute rails; shunt value to identify
+Shunt resistor kit,2512 1mohm-40mohm,1,owned,0.00,size each channel to its actual current range
+Addressable LED,WS2812B 8-LED stick,10,owned,0.00,~60 mA per LED at full white; brightness cap in firmware
+Heat-set inserts,M2-M6 brass (607 pc),1,owned,0.00,for printed brackets
+Heat shrink,3:1 adhesive-lined,1,owned,0.00,strain relief on a vibrating platform
+Servo cable,22 AWG 3-conductor 50 ft,1,owned,0.00,build exact-length harnesses
+Signal wire,22 AWG 6-color,1,owned,0.00,color-code I2C/power/sensor
+Heatsinks,aluminum/copper kit,1,owned,0.00,surplus units for TB6612 and regulators
+SBC,Jetson Nano A02 4GB,1,owned,0.00,JetPack 4.6.6 / L4T R32 ceiling; single CSI connector
+SBC,Raspberry Pi 3B+,1,owned,0.00,thin node: HMI + telemetry + end-effector camera
+MCU,Arduino Mega 2560,1,owned,0.00,retained as 5 V bench tool and fallback (ADR-0007)
+Display,Official Raspberry Pi 7in DSI touchscreen,1,owned,0.00,~200 mA at 5 V
+Camera,IMX219-class CSI,2,owned,0.00,one is ~160 deg wide-angle; assignment is an open decision
+IMU,GY-521 (MPU-6050),1,owned,0.00,6-axis; no magnetometer; 3.3 V bus check first (IMU-001)
+3D printer,Bambu Lab A1 + AMS Lite,1,owned,0.00,
+Ground station,MacBook Pro 14 3 (2017),1,owned,0.00,Ubuntu 22.04 + Humble; Polaris GPU has no ROCm path
+MCU,Teensy 4.1 (with Ethernet PHY),2,to-buy,35.00,BLOCKED on CTL-000; buy two - supply risk
+WiFi,M.2 Key E module + antennas,1,to-buy,28.00,verify L4T R32 support before ordering
+Network,Cat6 patch cable 6-12in,1,to-buy,5.00,Jetson<->Pi data plane
+Network,USB Ethernet adapter,1,to-buy,15.00,MacBook has no Ethernet port
+Safety,Latching mushroom e-stop (NC positive-opening),1,to-buy,13.00,breaks relay coil - ADR-0010
+Safety,Automotive relay for drive rail,1,to-buy,10.00,must fail open
+Safety,DC-rated master rocker switch,1,to-buy,8.00,AC-marked toggles are unverified for DC
+Power,Battery 3S >=10Ah >=20A continuous <=13.5V,1,to-buy,60.00,ADR-0001; require stated continuous rating
+Power,Blade fuse holders + fuses,1,to-buy,14.00,main fuse sized to wire plus per-rail
+Power,Bulk capacitors 1000uF 25V,1,to-buy,8.00,drive rail input

@@ -1,0 +1,34 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docs-and-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate doc links and ADR index
+        run: python3 scripts/check_docs.py
+
+      - name: Validate URDF if present
+        run: |
+          shopt -s nullglob globstar
+          files=(**/*.urdf **/*.urdf.xacro)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No URDF yet - skipping. This step activates when the description package lands."
+            exit 0
+          fi
+          python3 -m pip install --quiet xacro
+          for f in "${files[@]}"; do
+            echo "Checking $f"
+            python3 -c "import xacro,sys; xacro.process_file(sys.argv[1])" "$f"
+          done
+        shell: bash

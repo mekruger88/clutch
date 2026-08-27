@@ -1,0 +1,32 @@
+site_name: Clutch
+site_description: ROS 2 autonomous mobile manipulator - mecanum base and custom six-axis arm
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+nav:
+  - Overview: index.md
+  - Requirements: requirements.md
+  - Decisions:
+      - Index: adr/README.md
+      - ADR-0001 Power source: adr/0001-power-source.md
+      - ADR-0002 Drive stage: adr/0002-drive-stage.md
+      - ADR-0003 Compute topology: adr/0003-compute-topology.md
+      - ADR-0004 ROS baseline: adr/0004-ros-baseline.md
+      - ADR-0005 Middleware: adr/0005-middleware.md
+      - ADR-0006 Network: adr/0006-network.md
+      - ADR-0007 Low-level controller: adr/0007-low-level-controller.md
+      - ADR-0008 Kinematics split: adr/0008-kinematics-split.md
+      - ADR-0009 IMU: adr/0009-imu.md
+      - ADR-0010 Safety interlocks: adr/0010-safety-interlocks.md
+      - ADR-0011 Bring-up order: adr/0011-bringup-order.md
+  - Validation: validation/bench_checklist.md
+  - Safety: safety/hazard_analysis.md
+  - Log:
+      - 2026-08-26: log/2026-08-26.md
