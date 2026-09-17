@@ -5,7 +5,7 @@ Numbered, dated, and never edited after acceptance. To change a decision, add a 
 | ADR | Decision | Status | Date |
 |---|---|---|---|
 | 0001 | Power source: replace pack, >=20 A continuous | Accepted | 2026-08-26 |
-| 0002 | Drive stage: parallel TB6612 channels | Accepted | 2026-08-26 |
+| 0002 | Drive stage: parallel TB6612 channels | Superseded by 0012 | 2026-08-26 |
 | 0003 | Compute topology: Jetson + Pi + MCU | Accepted | 2026-08-26 |
 | 0004 | ROS baseline: Humble, containerized on Jetson | Accepted | 2026-08-26 |
 | 0005 | Middleware: Fast DDS, simple discovery | Accepted | 2026-08-26 |
@@ -15,10 +15,13 @@ Numbered, dated, and never edited after acceptance. To change a decision, add a 
 | 0009 | IMU: GY-521, vyaw only, SLAM owns heading | Accepted | 2026-08-26 |
 | 0010 | Safety: latching hardware e-stop, staged | Accepted | 2026-08-27 |
 | 0011 | Bring-up order: math, hardware, then sim | Accepted | 2026-08-27 |
+| 0012 | Drive stage substitution: DRV8871 with factory 30k RILIM | Accepted | 2026-09-16 |
 
 ## Reversal recorded
 
 ADR-0007 reverses a decision made earlier the same session. The Arduino Mega 2560 was selected first because it was already owned. It was replaced by the Teensy 4.1 once two constraints were confirmed: micro-ROS does not support the 8-bit AVR, and the Mega has only four usable external-interrupt pins after reserving I2C for the servo driver. The Teensy provides four hardware quadrature decoders instead. The Mega is retained as a 5 V bench tool and fallback controller.
+
+ADR-0012 supersedes the driver selection in ADR-0002. DRV8871 breakouts were purchased opportunistically and reviewed against the locked TB6612 plan. The switch is accepted for the internal current clamp and lower conduction loss, not for continuous-current gain (there isn't one on a small breakout). The 2 A continuous design value carries over. TB6612 stock is retained as a fallback if PWR-09 fails.
 
 ## Open decisions
 
