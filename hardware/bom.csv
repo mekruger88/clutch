@@ -1,8 +1,9 @@
 item,model,qty,status,unit_cost_usd,notes
 Chassis + mecanum drivetrain,SmaringRobot metal 4WD mecanum kit,1,owned,99.99,4x 12V encoder motors included; encoder output type UNVERIFIED (CTL-000)
 2D LiDAR,RPLIDAR C1,1,owned,71.90,12 m range; 10 Hz; ROS 2 driver available
-Motor driver,TB6612FNG (3-pack),3,owned,2.61,channels to be paralleled; 4th board required
-Motor driver,TB6612FNG (additional),1,to-buy,2.61,ADR-0002 needs 4 boards total
+Motor driver,TB6612FNG (3-pack),3,owned,2.61,superseded by ADR-0012; retained as fallback if PWR-09 fails
+Motor driver,TB6612FNG (additional),0,cancelled,2.61,cancelled by ADR-0012; only needed if reversal triggers
+Motor driver,DRV8871 breakout (ACEIRMC ASIN B0GF71LMRH 5-pack),5,purchased,3.20,ADR-0012; 30k RILIM factory-fitted; listing suspect PWR-07 to confirm; purchased 2026-09-06
 Servo PWM driver,PCA9685 16-channel,1,owned,6.99,arm stage; logic at 3.3 V with Teensy
 Arm servos,MG996R (Deegoo-FPV),8,owned,4.50,catalog specs disagree with manufacturer page; verify before use
 Servo BEC,FEICHAO 8A UBEC,1,owned,17.08,selectable 5V/6V; arm stage only
