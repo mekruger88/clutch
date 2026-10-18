@@ -9,7 +9,7 @@ ROS 2 autonomous mobile manipulator: a mecanum base carrying a custom 3D-printed
 | Area | Decision |
 |---|---|
 | Power | 3S, >=10 Ah, >=20 A stated continuous, <=13.5 V charged |
-| Drive | 4x TB6612FNG, channels paralleled, ~2 A continuous design value |
+| Drive | 4x DRV8871, factory 30k RILIM (~2.13 A trip), ~2 A continuous design value |
 | Compute | Jetson Nano A02 + Pi 3B+ (HMI) + Teensy 4.1 |
 | ROS | Humble everywhere; pinned L4T R32.7.1 ros-base container on Jetson |
 | Middleware | Fast DDS, simple discovery, pinned to the wired interface |

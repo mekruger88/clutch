@@ -16,7 +16,7 @@ nav:
   - Decisions:
       - Index: adr/README.md
       - ADR-0001 Power source: adr/0001-power-source.md
-      - ADR-0002 Drive stage: adr/0002-drive-stage.md
+      - ADR-0002 Drive stage (superseded): adr/0002-drive-stage.md
       - ADR-0003 Compute topology: adr/0003-compute-topology.md
       - ADR-0004 ROS baseline: adr/0004-ros-baseline.md
       - ADR-0005 Middleware: adr/0005-middleware.md
@@ -26,6 +26,7 @@ nav:
       - ADR-0009 IMU: adr/0009-imu.md
       - ADR-0010 Safety interlocks: adr/0010-safety-interlocks.md
       - ADR-0011 Bring-up order: adr/0011-bringup-order.md
+      - ADR-0012 Drive stage DRV8871: adr/0012-drive-stage-drv8871.md
   - Validation: validation/bench_checklist.md
   - Safety: safety/hazard_analysis.md
   - Log:

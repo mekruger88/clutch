@@ -16,7 +16,7 @@ Heat-set inserts,M2-M6 brass (607 pc),1,owned,0.00,for printed brackets
 Heat shrink,3:1 adhesive-lined,1,owned,0.00,strain relief on a vibrating platform
 Servo cable,22 AWG 3-conductor 50 ft,1,owned,0.00,build exact-length harnesses
 Signal wire,22 AWG 6-color,1,owned,0.00,color-code I2C/power/sensor
-Heatsinks,aluminum/copper kit,1,owned,0.00,surplus units for TB6612 and regulators
+Heatsinks,aluminum/copper kit,1,owned,0.00,surplus units for DRV8871 breakouts (if needed) and regulators
 SBC,Jetson Nano A02 4GB,1,owned,0.00,JetPack 4.6.6 / L4T R32 ceiling; single CSI connector
 SBC,Raspberry Pi 3B+,1,owned,0.00,thin node: HMI + telemetry + end-effector camera
 MCU,Arduino Mega 2560,1,owned,0.00,retained as 5 V bench tool and fallback (ADR-0007)

@@ -18,6 +18,11 @@ jobs:
       - name: Validate doc links and ADR index
         run: python3 scripts/check_docs.py
 
+      - name: Build MkDocs in strict mode
+        run: |
+          python3 -m pip install --quiet mkdocs mkdocs-material
+          mkdocs build --strict
+
       - name: Validate URDF if present
         run: |
           shopt -s nullglob globstar
