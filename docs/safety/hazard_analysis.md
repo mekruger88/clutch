@@ -14,7 +14,7 @@ This is a small prototype, not a certified industrial machine. The purpose is to
 |---|---|---|---|---|
 | Battery short, connector fault or wiring fire | High | Main fuse sized to wire, per-rail fuses, insulated terminals, keyed polarity, strain relief, battery inspection. | PWR-001, visual preflight. | Medium |
 | Runaway base after host, USB or WiFi failure | High | Teensy outputs inhibited on boot; explicit enable; 300-500 ms firmware watchdog; latching hardware e-stop. | CTL-002, SAFE-001. | Low |
-| Motor stall overheats TB6612 or wiring | High | Paralleled channels, encoder stall timeout <250 ms, current logging, conservative acceleration, fuse. | CTL-004, PWR-003. | Medium |
+| Motor stall or continuous strafe overheats DRV8871 breakout or wiring | High | DRV8871 30 kOhm RILIM internal current chop (~2.13 A typ), PID anti-windup, encoder stall timeout <250 ms, current logging, per-rail fuse. | PWR-007, PWR-008, PWR-009, PWR-010, CTL-004b, CTL-006, PWR-003. | Medium |
 | E-stop fails or restart occurs after reset | High | Latching mushroom, NC contact opens relay coil, relay fails open, release does not restart, explicit enable required. | SAFE-001, SAFE-002. | Low |
 | Category-0 e-stop drops arm under gravity | High | Documented operating characteristic; keep arm low; light payload; no body part or fixture below loaded arm; arm rail cut added only after this behavior is understood. | Arm-stage safety test. | Medium |
 | Pinch, crush or entanglement at arm, wheels, mecanum rollers | High | Keep observers clear; powered-motion exclusion zone; covers where practical; no loose clothing/cables; reachable e-stop. | Preflight, visual inspection. | Medium |
