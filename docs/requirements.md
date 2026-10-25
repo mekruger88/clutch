@@ -57,6 +57,17 @@ Every claim in this repository must trace to a requirement, a test, and an evide
 | IMU-001 | IMU yaw-rate bias shall be calibrated at boot while stationary. | MPU-6050 zero-rate offset. | Test | Drift <2 deg/min after zeroing. | IMU-002 | NOT VERIFIED | — |
 | IMU-002 | IMU fusion shall validate scale/vibration immunity and measurably improve navigation estimate or be disabled. | Avoid complexity without value (ADR-0009). | Comparative test | 360 deg turn within 2% (IMU-003); motor-on bias shift <1 deg/s (IMU-004); EKF-on vs wheel-only recorded (IMU-005). | IMU-003 / IMU-004 / IMU-005 | NOT VERIFIED | — |
 
+## Arm (Phase A) and Phase C entry
+
+| ID | Requirement | Rationale | Verification | Threshold | Test | Status | Evidence |
+|---|---|---|---|---|---|---|---|
+| ARM-001 | Servo rail voltage shall not exceed the rated maximum of any servo on the rail. | Snapper servo labels unread; D12 open (ADR-0013). | Inspection | All five Snapper servo labels recorded; rail voltage <= lowest rated maximum. | ARM-001 | NOT VERIFIED | — |
+| ARM-002 | No servo-rail voltage shall reach Teensy or PCA9685 logic. | Teensy 4.1 is not 5 V tolerant (ADR-0007). | Measurement | Rail powered, Teensy off: 3V3 and PCA9685 VCC <0.1 V; all powered: SDA/SCL idle <=3.3 V. | ARM-002 | NOT VERIFIED | — |
+| ARM-003 | Arm servo outputs shall boot disabled and require explicit enable. | PCA9685 power-up glitch; mirrors CTL-004 (ADR-0013). | Test | Zero servo motion across 10 power cycles until explicit enable. | ARM-003 | NOT VERIFIED | — |
+| ARM-004 | Servo rail shall stay within the UBEC rating under worst-case arm load. | Avoid brownout and UBEC shutdown (ADR-0013). | Test | Peak <8 A; droop <10%; no Teensy or Jetson reset; no UBEC shutdown. | ARM-004 | NOT VERIFIED | — |
+| ARM-005 | The hardware e-stop shall remove servo rail power. | ADR-0010 stage 2. | Test | Servo rail removed <100 ms, 20 repetitions; release causes no motion; unloaded drop recorded. | ARM-005 | NOT VERIFIED | — |
+| ARM-010 | The Phase C bus-servo branch shall stay within the servo driver input range. | Driver max ~12.6 V is below the ADR-0001 13.5 V ceiling (ADR-0013). | Measurement | Fully charged pack <=12.6 V at the branch, or regulated 12 V branch bench-verified. | ARM-010 | NOT VERIFIED | — |
+
 ## Compute, environment, and network
 
 | ID | Requirement | Rationale | Verification | Threshold | Test | Status | Evidence |

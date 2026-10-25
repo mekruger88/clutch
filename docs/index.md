@@ -1,6 +1,6 @@
 # Clutch
 
-ROS 2 autonomous mobile manipulator: a mecanum base carrying a custom 3D-printed six-axis arm, running detect -> drive -> grasp.
+ROS 2 autonomous mobile manipulator: a mecanum base carrying a phased arm (RobotGeek Snapper first, SO-ARM101 12 V as the target), running detect -> drive -> grasp.
 
 **Status:** Phase 1 - math and structure. No hardware energized yet.
 

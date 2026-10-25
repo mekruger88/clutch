@@ -5,13 +5,14 @@ Canonical implementation order for the first exit criterion: wheels turning unde
 ## Blocking order
 
 1. **CTL-000 precedes the Teensy purchase.** A 5 V encoder signal can destroy a Teensy 4.1.
-2. **PWR-007 and PWR-010 precede trusting DRV8871 breakouts or motor stall ratings (ADR-0012).**
-3. **SAFE-001 on a dummy load precedes any motor energizing.**
+2. **PWR-007 precedes wiring any DRV8871 board (ADR-0012).**
+3. **SAFE-001 on a dummy load precedes any motor energizing, including bench-supply motor tests.**
 4. **PWR-001 and PWR-002 precede battery connection to electronics.**
-5. **IMU-001 precedes connecting the GY-521 to the Teensy.**
-6. **KIN-001 precedes any wheel spin.**
-7. **PWR-008, CTL-005, and CTL-006 precede floor driving.**
-8. **PWR-003 and PWR-009 precede extended floor driving.**
+5. **PWR-010 precedes PWR-008 and any wheel spin on a DRV8871.** A measured stall above 3.4 A stops work and triggers the ADR-0012 reversal.
+6. **IMU-001 precedes connecting the GY-521 to the Teensy.**
+7. **KIN-001 precedes any wheel spin.**
+8. **PWR-008, CTL-005, and CTL-006 precede floor driving.**
+9. **PWR-003 and PWR-009 precede extended floor driving.**
 
 ## Ordered tasks
 
@@ -19,12 +20,12 @@ Canonical implementation order for the first exit criterion: wheels turning unde
 |---:|---|---|---|---|
 | 1 | CTL-000 | Power one encoder from its intended supply; rotate by hand; measure A/B high levels and determine push-pull versus open collector. | Every eventual Teensy input <=3.3 V, or a documented level-shifter design exists. | Photo, voltage table, scope trace if available. |
 | 2 | PWR-007 (PWR-07) | Inspect DRV8871 breakouts under magnification and measure RILIM with a DMM. | 5 boards present; DRV8871 top mark confirmed; RILIM measures 30 kOhm +/-5%. | Macro photo, DMM table. |
-| 3 | PWR-010 (PWR-10) | Measure no-load and locked-rotor stall current on two drive motors at 13.5 V. | No-load <=0.5 A; measured stall within 20% of 3.15 A (if >3.4 A, trigger ADR-0012 reversal). | DMM/clamp log, photo. |
-| 4 | PWR-001 | Inspect new battery label, chemistry, polarity, charger and continuous/pulse discharge ratings. | 3S; >=10 Ah; >=20 A stated continuous; <=13.5 V full charge. | Label photos, datasheet link. |
-| 5 | SAFE-001 | Build master fuse, DC-rated disconnect, relay coil and latching mushroom circuit using a dummy load. | Actuator feed opens <100 ms, 20 times; reset never restarts; telemetry stays powered. | Wiring diagram, video, current log. |
-| 6 | PWR-002 | Bench-load battery in 1 A increments to 5 A. | Sustains 5 A for 5 min; >10.5 V; connector rise <20 C; no BMS interruption. | CSV, temperature record. |
-| 7 | SAFE-004 | Bench-discharge into resistive load to verify INA226 software LVC thresholds (ADR-0010). | Warn and refuse new goals at 10.5 V; auto-stop at 9.9 V before BMS cutoff. | INA226 CSV, log output. |
-| 8 | PWR-004 | Verify regulators at no load and target load, measured at each device input. | Jetson input >=4.75 V; no abnormal heating or ripple observed. | Voltage table, photos. |
+| 3 | PWR-001 | Inspect new battery label, chemistry, polarity, charger and continuous/pulse discharge ratings. | 3S; >=10 Ah; >=20 A stated continuous; <=13.5 V full charge. | Label photos, datasheet link. |
+| 4 | SAFE-001 | Build master fuse, DC-rated disconnect, relay coil and latching mushroom circuit using a dummy load. | Actuator feed opens <100 ms, 20 times; reset never restarts; telemetry stays powered. | Wiring diagram, video, current log. |
+| 5 | PWR-002 | Bench-load battery in 1 A increments to 5 A. | Sustains 5 A for 5 min; >10.5 V; connector rise <20 C; no BMS interruption. | CSV, temperature record. |
+| 6 | SAFE-004 | Bench-discharge into resistive load to verify INA226 software LVC thresholds (ADR-0010). | Warn and refuse new goals at 10.5 V; auto-stop at 9.9 V before BMS cutoff. | INA226 CSV, log output. |
+| 7 | PWR-004 | Verify regulators at no load and target load, measured at each device input. | Jetson input >=4.75 V; no abnormal heating or ripple observed. | Voltage table, photos. |
+| 8 | PWR-010 (PWR-10) | Behind the SAFE-001 circuit, on a current-limited supply at 13.5 V, measure no-load and locked-rotor stall current on two drive motors. | No-load <=0.5 A; measured stall within 20% of 3.15 A (if >3.4 A, trigger ADR-0012 reversal). | DMM/clamp log, photo. |
 | 9 | PWR-008 (PWR-08) | Single DRV8871 board, one wheel motor at 13.5 V, locked rotor for 5 s. | Current plateaus 1.87-2.42 A; no reset; board surface <=80 C. | Current trace, thermal photo. |
 | 10 | ENV-001 | Reproduce Jetson ROS image from committed files. | Build without manual in-container changes; versions and digest recorded. | Build log, image digest. |
 | 11 | ENV-002 | Verify GPU access in container under 30 min load. | GPU visible; no crash or throttle. | tegrastats log. |
