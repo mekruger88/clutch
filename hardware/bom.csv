@@ -4,9 +4,11 @@ Chassis + mecanum drivetrain,SmaringRobot metal 4WD mecanum kit,1,owned,99.99,4x
 Motor driver,TB6612FNG (3-pack),3,owned,2.61,superseded by ADR-0012; retained as fallback if PWR-09 fails
 Motor driver,TB6612FNG (additional),0,cancelled,2.61,cancelled by ADR-0012; only needed if reversal triggers
 Motor driver,DRV8871 breakout (ACEIRMC ASIN B0GF71LMRH 5-pack),5,purchased,3.20,ADR-0012; 30k RILIM factory-fitted; listing suspect PWR-07 to confirm; purchased 2026-09-06
-Servo PWM driver,PCA9685 16-channel,1,owned,6.99,arm stage; logic at 3.3 V with Teensy
-Arm servos,MG996R (Deegoo-FPV),8,owned,4.50,catalog specs disagree with manufacturer page; verify before use
-Servo BEC,FEICHAO 8A UBEC,1,owned,17.08,selectable 5V/6V; arm stage only
+Robot arm (Phase A),RobotGeek Snapper,1,owned,0.00,ADR-0013 Phase A; 4 joint PWM servos + parallel gripper servo; read servo labels (ARM-001)
+Robot arm (Phase C),SO-ARM101 12V follower (6x STS3215 12V bus servos),1,deferred,,ADR-0013 Phase C; needs its own ADR and ARM-010 before purchase
+Servo PWM driver,PCA9685 16-channel,1,owned,6.99,arm Phases A-B (ADR-0013); logic at 3.3 V with Teensy; OE held high until enable; not used in Phase C
+Arm servos,MG996R (Deegoo-FPV),8,owned,4.50,Phase B only (optional; ADR-0013); catalog specs disagree with manufacturer page; verify before use
+Servo BEC,FEICHAO 8A UBEC,1,owned,17.08,servo rail Phases A-B; jumper options to confirm (listed 5V/6V; 7V jumper reported 2026-08-20); rail voltage set by ARM-001 (D12)
 Buck converter,UCTRONICS 5V 5A (2-pack),2,owned,7.50,compute rail; verify under load (PWR-004)
 Buck converter,DROK 5-5.3V,1,owned,0.00,spare; fixed-output preferred for compute
 Current/voltage monitor,INA226,5,owned,5.20,battery/drive/servo/compute rails; shunt value to identify

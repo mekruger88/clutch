@@ -1,6 +1,6 @@
 # Clutch
 
-ROS 2 autonomous mobile manipulator: a mecanum base carrying a custom 3D-printed six-axis arm, running detect -> drive -> grasp.
+ROS 2 autonomous mobile manipulator: a mecanum base carrying a phased arm (RobotGeek Snapper first, SO-ARM101 12 V as the target), running detect -> drive -> grasp.
 
 **Status:** Phase 1 - math and structure. No hardware energized yet.
 
@@ -18,6 +18,7 @@ ROS 2 autonomous mobile manipulator: a mecanum base carrying a custom 3D-printed
 | Kinematics | Velocity PID in firmware; IK + odometry in a ros2_control plugin |
 | IMU | GY-521 (MPU-6050) read by the Teensy; vyaw only into the EKF |
 | Safety | Latching mushroom e-stop breaking the drive-rail relay coil |
+| Arm | Phased: Snapper on PCA9685 via Teensy, optional MG996R arm, SO-ARM101 12 V target |
 
 Rationale for every line is in [docs/adr/](docs/adr/).
 

@@ -1,5 +1,5 @@
 site_name: Clutch
-site_description: ROS 2 autonomous mobile manipulator - mecanum base and custom six-axis arm
+site_description: ROS 2 autonomous mobile manipulator - mecanum base and phased arm
 theme:
   name: material
   features:
@@ -27,6 +27,7 @@ nav:
       - ADR-0010 Safety interlocks: adr/0010-safety-interlocks.md
       - ADR-0011 Bring-up order: adr/0011-bringup-order.md
       - ADR-0012 Drive stage DRV8871: adr/0012-drive-stage-drv8871.md
+      - ADR-0013 Phased manipulator: adr/0013-phased-manipulator-roadmap.md
   - Validation: validation/bench_checklist.md
   - Safety: safety/hazard_analysis.md
   - Log:

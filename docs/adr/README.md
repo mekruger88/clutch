@@ -16,6 +16,7 @@ Numbered, dated, and never edited after acceptance. To change a decision, add a 
 | 0010 | Safety: latching hardware e-stop, staged | Accepted | 2026-08-27 |
 | 0011 | Bring-up order: math, hardware, then sim | Accepted | 2026-08-27 |
 | 0012 | Drive stage substitution: DRV8871 with factory 30k RILIM | Accepted | 2026-09-16 |
+| 0013 | Phased manipulator: Snapper, optional MG996R, SO-ARM101 | Accepted | 2026-10-25 |
 
 ## Reversal recorded
 
@@ -25,4 +26,6 @@ ADR-0012 supersedes the driver selection in ADR-0002. DRV8871 breakouts were pur
 
 ## Open decisions
 
-D11 arm actuator class - D12 servo rail voltage and motion governor - D13 arm control approach - D14 perception scope and camera assignment - D15 detector and Nano FPS gate - D16 SLAM and localization config - D17 ultrasonic integration - D18 HMI scope - D19 mechanical layout - D20 enclosure
+D11 arm actuator class - resolved per phase by ADR-0013
+
+D12 servo rail voltage and motion governor (gated by ARM-001) - D13 arm control approach - D14 perception scope and camera assignment - D15 detector and Nano FPS gate - D16 SLAM and localization config - D17 ultrasonic integration - D18 HMI scope - D19 mechanical layout - D20 enclosure
